@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1osmji02n84l"]
+
+[ext_resource type="Script" path="res://Lelvels/Chapter1/Lvl1/scripts/game_over_screen.gd" id="1_hmng2"]
+[ext_resource type="FontFile" uid="uid://bpca0jdj2uso8" path="res://menus/ByEmil/assetsE/kenvector_future.ttf" id="1_sklu6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rstdf"]
+font = ExtResource("1_sklu6")
+font_size = 64
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hmng2")
+
+[node name="GameOver" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -96.0
+offset_right = 218.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_rstdf")
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_sklu6")
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

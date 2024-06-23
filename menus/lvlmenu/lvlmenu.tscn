@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkifg2jy64dl7"]
+
+[ext_resource type="Texture2D" uid="uid://bd33agbdbpytg" path="res://assets/Ocean-and-Clouds-Free-Pixel-Art-Backgrounds9.png" id="1_pmbli"]
+[ext_resource type="Script" path="res://menus/lvlmenu/VBoxContainer.gd" id="2_v5hf7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eemqx"]
+font_size = 66
+
+[node name="lvlmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -623.0
+offset_top = -603.0
+offset_right = 1241.0
+offset_bottom = 763.0
+texture = ExtResource("1_pmbli")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -125.0
+offset_right = 180.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_v5hf7")
+
+[node name="Select_chapter_1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Chapter 1"
+
+[node name="Select_chapter_2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Chapter 2"
+
+[node name="Back_to_main_menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back to main menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -407.0
+offset_right = 407.0
+offset_bottom = 199.0
+grow_horizontal = 2
+text = "Select Chapter"
+label_settings = SubResource("LabelSettings_eemqx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Select_chapter_1" to="VBoxContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Select_chapter_2" to="VBoxContainer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back_to_main_menu" to="VBoxContainer" method="_on_button_3_pressed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8l7uhdlju4hc"]
+
+[ext_resource type="Texture2D" uid="uid://bw5k4ujpr3ak" path="res://menus/ByEmil/assetsE/playerLife1_blue.png" id="1_nuydo"]
+
+[node name="UILives" type="TextureRect"]
+offset_right = 33.0
+offset_bottom = 26.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_nuydo")

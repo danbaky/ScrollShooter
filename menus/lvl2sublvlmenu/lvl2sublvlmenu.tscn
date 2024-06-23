@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://sq5kgme61571"]
+
+[ext_resource type="Script" path="res://menus/lvl2sublvlmenu/VBoxContainer.gd" id="1_1shj7"]
+[ext_resource type="Texture2D" uid="uid://bw8x6d4vbo2dt" path="res://assets/lovepik-abstract-background-png-image_400280848_wh1200.png" id="1_1t8kl"]
+
+[node name="Lvl2sublvlmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_top = 108.0
+offset_right = 176.0
+offset_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -576.0
+offset_top = -109.0
+offset_right = 624.0
+offset_bottom = 691.0
+texture = ExtResource("1_1t8kl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 298.0
+offset_bottom = 240.0
+script = ExtResource("1_1shj7")
+
+[node name="Chapter_2_lvl_1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level 1"
+
+[node name="Chapter_2_lvl_2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level 2"
+
+[node name="Back_to_chapter_menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+
+[connection signal="pressed" from="VBoxContainer/Chapter_2_lvl_1" to="VBoxContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Chapter_2_lvl_2" to="VBoxContainer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back_to_chapter_menu" to="VBoxContainer" method="_on_button_3_pressed"]

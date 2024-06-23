@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0qfo5by8tqfd"]
+
+[ext_resource type="PackedScene" uid="uid://ya5lqco5tjco" path="res://menus/ByEmil/scenes/player.tscn" id="1_45fdh"]
+[ext_resource type="Script" path="res://Lelvels/Chapter1/Lvl1/scripts/game.gd" id="1_afr1a"]
+[ext_resource type="PackedScene" uid="uid://c3u0i8tdn3eex" path="res://menus/ByEmil/scenes/asteroid.tscn" id="3_ffhwe"]
+[ext_resource type="PackedScene" uid="uid://bfwkj2irtgp47" path="res://menus/ByEmil/scenes/hud.tscn" id="4_3rx8n"]
+[ext_resource type="PackedScene" uid="uid://c1osmji02n84l" path="res://Lelvels/Chapter1/Lvl1/scenes/game_over_screen.tscn" id="5_aibhk"]
+
+[sub_resource type="Curve2D" id="Curve2D_35wn0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, -74, 0, 0, 0, 0, 536, -79, 0, 0, 0, 0, 534, -7, 0, 0, 0, 0, -5, -9, 0, 0, 0, 0, -3, -74, 0, 0, 0, 0, -2, -74)
+}
+point_count = 6
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_afr1a")
+mob_scene = ExtResource("3_ffhwe")
+
+[node name="Player" parent="." instance=ExtResource("1_45fdh")]
+position = Vector2(326, 422)
+
+[node name="Lasers" type="Node2D" parent="."]
+position = Vector2(-2, 0)
+
+[node name="Asteroids" type="Node" parent="."]
+
+[node name="Asteroid" parent="Asteroids" instance=ExtResource("3_ffhwe")]
+position = Vector2(177, 69)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("4_3rx8n")]
+metadata/_edit_use_anchors_ = true
+
+[node name="GameOverScreen" parent="UI" instance=ExtResource("5_aibhk")]
+visible = false
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="MobPath2D" type="Path2D" parent="."]
+position = Vector2(5.94455, -13.1667)
+scale = Vector2(0.98891, 0.833333)
+curve = SubResource("Curve2D_35wn0")
+
+[node name="MobSpawnLoc" type="PathFollow2D" parent="MobPath2D"]
+position = Vector2(-2, -74)
+rotation = -0.00929341
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
